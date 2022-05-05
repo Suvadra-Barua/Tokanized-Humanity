@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { BiMoon, BiSun } from 'react-icons/bi';
+import { BiDonateHeart, BiMoon, BiSun } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import { MainContext } from '../../providers/MainProvider';
 
 function Navbar() {
@@ -16,26 +17,40 @@ function Navbar() {
 
   return (
     <div
-      className="sticky top-0 flex justify-between py-2 border-b border-slate-900/10 dark:border-slate-300/10 lg:mx-0"
+      className="sticky top-0 z-50 flex justify-between py-2 lg:mx-0"
       style={{
         backdropFilter: 'blur(2px)',
       }}
     >
-      <a className="mr-3" href="/">
-        <h4 className="font-bold">
+      <Link className="flex items-center mr-3 space-x-2" to="/">
+        <BiDonateHeart
+          size={32}
+          color="#3b82f6"
+        />
+
+        <h4 className="text-xl font-black text-[#3b82f6]">
           Tokenized Humanity
         </h4>
-      </a>
-      <button type="button" onClick={toggleColorMode}>
-        {
+      </Link>
+      <div className="flex items-center">
+
+        <button type="button" onClick={toggleColorMode} className="mr-4">
+          {
            theme === 'light'
              ? (
-               <BiMoon className="h-5 text-gray-400 fill-current" />
+               <BiMoon className="h-5 text-gray-400 transition duration-500 fill-current hover:text-gray-900" />
              ) : (
-               <BiSun className="h-5 text-gray-400 fill-current" />
+               <BiSun className="h-5 text-gray-400 transition duration-500 fill-current hover:text-white" />
              )
           }
-      </button>
+        </button>
+        <button
+          className="block px-4 py-2 text-sm text-blue-500 transition duration-500 rounded-full hover:bg-blue-500 hover:text-white"
+          type="button"
+        >
+          Sign In
+        </button>
+      </div>
     </div>
 
   );

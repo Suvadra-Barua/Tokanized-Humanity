@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 import Layout from '../components/ui/Layout';
+import FundRequestDetails from '../pages/FundRequestDetails';
 import Landing from '../pages/Landing';
-import LogIn from '../pages/Login';
 
 function Routes() {
   const withoutLogin = {
@@ -9,7 +9,7 @@ function Routes() {
     element: <Layout />,
     children: [
       { path: '/', element: <Landing /> },
-      { path: '/login', element: <LogIn /> },
+      { path: '/fund-request/:id', element: <FundRequestDetails /> },
     ],
   };
 

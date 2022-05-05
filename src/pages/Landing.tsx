@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import Quill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // ES6
-import HomeFeed from '../components/ui/HomeFeed';
+import HomeFeed from '../components/ui/landing/HomeFeed';
+import SliderComponent from '../components/ui/landing/Slider';
 
 function Landing() {
   const [status, setStatus] = useState('');
 
   return (
     <div className="w-full space-y-6">
-      <h4 className="font-bold">
-        Home
-      </h4>
+      <h2 className="text-2xl font-bold">Title</h2>
       <div className="relative">
         <Quill
           onChange={setStatus}
@@ -24,6 +23,7 @@ function Landing() {
             width: '100%',
             display: 'flex',
             flexDirection: 'column-reverse',
+            marginTop: '-20px',
           }
         }
           modules={
@@ -41,6 +41,7 @@ function Landing() {
           Post
         </button>
       </div>
+      <SliderComponent />
       <HomeFeed />
     </div>
 

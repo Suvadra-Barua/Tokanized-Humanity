@@ -11,7 +11,7 @@ module.exports = {
         purple: colors.violet,
         pink: colors.pink,
         rose: colors.rose,
-        primary:'#00a6ff',
+        primary:'#2178ad',
       }
     },
   plugins: [require("@tailwindcss/typography")],

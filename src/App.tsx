@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { MainProvider } from './providers/MainProvider';
-import Routes from './router/Routes';
+import Routes from './routes/Routes';
 import './styles/global.css';
 import './styles/tailwind.css';
 

@@ -1,3 +1,32 @@
 .ql-toolbar.ql-snow { border: none !important;}
 
 .ql-container.ql-snow{ border: none !important;}
+
+/** custom font **/
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/**  custom scrollbar **/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #92c3e1;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2178ad;
+}
+
+
+.slick-slider .slick-slide {
+  padding: 0 5px;
+}

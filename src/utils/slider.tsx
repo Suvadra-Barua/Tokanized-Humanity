@@ -3,7 +3,7 @@ function SampleNextArrow(props:any) {
   return (
     <button
       type="button"
-      className={`${className} bg-blue-500 hover:bg-blue-600 transition  shrink-0 h-8 -mt-4 pt-0.5 duration-700 flex justify-center items-center w-8 rounded-full`}
+      className={`${className} bg-primary hover:bg-secondary transition  shrink-0 h-8 -mt-4 pt-0.5 duration-700 flex justify-center items-center w-8 rounded-full`}
       style={{
         ...style,
         display: 'block',
@@ -18,7 +18,7 @@ function SamplePrevArrow(props:any) {
   return (
     <button
       type="button"
-      className={`${className} bg-blue-500 hover:bg-blue-600 transition  shrink-0 h-8 -mt-4 pt-0.5 duration-700 flex justify-center items-center w-8 rounded-full z-100`}
+      className={`${className} bg-primary hover:bg-secondary transition  shrink-0 h-8 -mt-4 pt-0.5 duration-700 flex justify-center items-center w-8 rounded-full z-100`}
       style={{
         ...style,
         display: 'block',

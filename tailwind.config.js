@@ -12,7 +12,8 @@ module.exports = {
         purple: colors.violet,
         pink: colors.pink,
         rose: colors.rose,
-        primary:'#2178ad',
+        primary:'#34d399',
+        secondary:'#059669'
       }
     },
  },

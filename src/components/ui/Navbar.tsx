@@ -25,10 +25,10 @@ function Navbar() {
       <Link className="flex items-center mr-3 space-x-2" to="/">
         <BiDonateHeart
           size={32}
-          color="#3b82f6"
+          className="text-primary"
         />
 
-        <h4 className="text-xl font-black text-[#3b82f6]">
+        <h4 className="text-xl font-black text-primary">
           Tokenized Humanity
         </h4>
       </Link>
@@ -45,7 +45,7 @@ function Navbar() {
           }
         </button>
         <button
-          className="block px-4 py-2 text-sm text-blue-500 transition duration-500 rounded-full hover:bg-blue-500 hover:text-white"
+          className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
           type="button"
         >
           Sign In

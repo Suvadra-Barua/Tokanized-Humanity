@@ -35,7 +35,7 @@ function Landing() {
         }
         />
         <button
-          className="absolute px-4 py-1 text-xs text-white transition bg-blue-500 rounded-full bottom-2 right-2 hover:bg-blue-600"
+          className="absolute px-4 py-1 text-xs text-white transition duration-500 rounded-full bg-primary bottom-2 right-2 hover:bg-secondary"
           type="button"
         >
           Post

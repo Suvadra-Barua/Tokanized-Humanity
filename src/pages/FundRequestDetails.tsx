@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function FundRequestDetails() {
   return (
     <div className="w-full space-y-6">
@@ -18,13 +20,13 @@ function FundRequestDetails() {
           <p className="py-2 text-sm">163 donations</p>
           <div className="w-full pt-4 space-y-2">
             <button
-              className="block w-full py-2 text-white transition bg-blue-500 rounded-full hover:bg-blue-600"
+              className="block w-full py-2 text-white transition bg-primary rounded-full hover:bg-secondary"
               type="button"
             >
               Donate
             </button>
             <button
-              className="block w-full py-2 text-blue-500 transition border border-blue-500 rounded-full hover:bg-blue-500 hover:text-white"
+              className="block w-full py-2 text-primary transition border border-primary rounded-full hover:bg-primary hover:text-white"
               type="button"
             >
               Share
@@ -34,13 +36,13 @@ function FundRequestDetails() {
 
       </div>
       <div className="flex items-center">
-        <div className="flex-shrink-0">
+        <Link to="/user/1" className="flex-shrink-0">
           <img
             className="inline-block w-12 h-12 mr-4 rounded-full"
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
             alt=""
           />
-        </div>
+        </Link>
         <span className="text-sm font-semibold">
           Miss Jane is organizing this fundraiser.
         </span>

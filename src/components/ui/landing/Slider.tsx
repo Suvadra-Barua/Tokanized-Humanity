@@ -11,7 +11,7 @@ function SliderComponent() {
       <Slider {...settings} className="w-full">
         {
           [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
-            <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-blue-500 group rounded-xl">
+            <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-primary group rounded-xl">
               <Link
                 className="space-y-1 "
                 to={`/fund-request/${index}`}
@@ -21,7 +21,7 @@ function SliderComponent() {
                   src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
                   alt=""
                 />
-                <h2>Fundraiser For Archie</h2>
+                <h2 className="pt-2">Fundraiser For Archie</h2>
                 <p className="text-sm text-gray-600 truncate">
                   We have been saddened with the news that Archie Low
                   has been diagnosed with AML Leukemia and ha

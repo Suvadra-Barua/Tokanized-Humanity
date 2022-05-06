@@ -12,7 +12,7 @@ function HomeFeed() {
           <div className="flex-shrink-0">
             <img
               className="rounded-full w-14 h-14"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+              src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
               alt=""
             />
           </div>

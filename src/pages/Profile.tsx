@@ -62,28 +62,37 @@ function Profile() {
           </div>
           <div className="grid grid-cols-3">
             <div className="my-2 text-center">
-              <img
-                className="w-16 h-16 mx-auto rounded-full"
-                src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                alt=""
-              />
-              <Link to="/user/1" className="text-main-color">Kojstantin</Link>
+
+              <Link to="/user/1">
+
+                <img
+                  className="w-16 h-16 mx-auto rounded-full"
+                  src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
+                  alt=""
+                />
+              </Link>
             </div>
             <div className="my-2 text-center">
-              <img
-                className="w-16 h-16 mx-auto rounded-full"
-                src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                alt=""
-              />
-              <Link to="/user/1" className="text-main-color">Kojstantin</Link>
+
+              <Link to="/user/1">
+
+                <img
+                  className="w-16 h-16 mx-auto rounded-full"
+                  src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                  alt=""
+                />
+              </Link>
             </div>
             <div className="my-2 text-center">
-              <img
-                className="w-16 h-16 mx-auto rounded-full"
-                src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                alt=""
-              />
-              <Link to="/user/1" className="text-main-color">Kojstantin</Link>
+
+              <Link to="/user/1">
+
+                <img
+                  className="w-16 h-16 mx-auto rounded-full"
+                  src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+                  alt=""
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -145,41 +154,98 @@ function Profile() {
               <BiFile className="text-primary" size={24} />
               <span className="tracking-wide">Successful Projects</span>
             </div>
-            <ul className="grid grid-cols-3 gap-6 list-inside">
-              <li className="p-2 border rounded-xl">
-                <Link to="/fund-request/1" className="space-y-2">
-                  <div className="text-primary">Owner at Her Company Inc.</div>
-                  <div className="text-xs ">March 2020 - Now</div>
-                  <img
-                    src="https://images.unsplash.com/photo-1507427100689-2bf8574e32d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                    className="w-full rounded-xl"
-                    alt=""
-                  />
-                </Link>
+            <ul className="grid grid-cols-3 gap-2 list-inside">
+              <li>
+                <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-primary group rounded-xl">
+                  <Link
+                    className="space-y-1 "
+                    to="/fund-request/1"
+                  >
+                    <img
+                      className="object-fill w-full h-48 transition duration-700 group-hover:scale-105 rounded-xl"
+                      src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+                      alt=""
+                    />
+                    <h2 className="pt-2">Fundraiser For Archie</h2>
+                    <p className="text-sm text-gray-600 truncate">
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                    </p>
+                    <div className="text-xs font-bold">
+                      <span className="text-primary">
+                        $13,733 raised
+                      </span>
+                      ·
+                      114 donations
+                    </div>
+                  </Link>
+                </div>
               </li>
 
-              <li className="p-2 border rounded-xl">
-                <Link to="/fund-request/1" className="space-y-2">
-                  <div className="text-primary">Owner at Her Company Inc.</div>
-                  <div className="text-xs ">March 2020 - Now</div>
-                  <img
-                    src="https://images.unsplash.com/photo-1507427100689-2bf8574e32d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                    className="w-full rounded-xl"
-                    alt=""
-                  />
-                </Link>
+              <li>
+                <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-primary group rounded-xl">
+                  <Link
+                    className="space-y-1 "
+                    to="/fund-request/1"
+                  >
+                    <img
+                      className="object-fill w-full h-48 transition duration-700 group-hover:scale-105 rounded-xl"
+                      src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+                      alt=""
+                    />
+                    <h2 className="pt-2">Fundraiser For Archie</h2>
+                    <p className="text-sm text-gray-600 truncate">
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                    </p>
+                    <div className="text-xs font-bold">
+                      <span className="text-primary">
+                        $13,733 raised
+                      </span>
+                      ·
+                      114 donations
+                    </div>
+                  </Link>
+                </div>
               </li>
 
-              <li className="p-2 border rounded-xl">
-                <Link to="/fund-request/1" className="space-y-2">
-                  <div className="text-primary">Owner at Her Company Inc.</div>
-                  <div className="text-xs ">March 2020 - Now</div>
-                  <img
-                    src="https://images.unsplash.com/photo-1507427100689-2bf8574e32d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                    className="w-full rounded-xl"
-                    alt=""
-                  />
-                </Link>
+              <li>
+                <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-primary group rounded-xl">
+                  <Link
+                    className="space-y-1 "
+                    to="/fund-request/1"
+                  >
+                    <img
+                      className="object-fill w-full h-48 transition duration-700 group-hover:scale-105 rounded-xl"
+                      src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+                      alt=""
+                    />
+                    <h2 className="pt-2">Fundraiser For Archie</h2>
+                    <p className="text-sm text-gray-600 truncate">
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                      We have been saddened with the news that Archie Low
+                      has been diagnosed with AML Leukemia and ha
+                    </p>
+                    <div className="text-xs font-bold">
+                      <span className="text-primary">
+                        $13,733 raised
+                      </span>
+                      ·
+                      114 donations
+                    </div>
+                  </Link>
+                </div>
               </li>
 
             </ul>

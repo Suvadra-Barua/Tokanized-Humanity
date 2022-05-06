@@ -24,7 +24,7 @@ function HomeFeed() {
               >
                 Jhon Doe
               </Link>
-              <span className="mr-1 text-gray-600">
+              <span className="mr-1 text-secondary">
                 &nbsp; @jhondoe
               </span>
               <span className="mr-1 text-gray-600">
@@ -32,7 +32,7 @@ function HomeFeed() {
               </span>
             </div>
 
-            <div className="px-4 py-2 mt-2 rounded-xl hover:bg-gray-500/5">
+            <div className="px-4 py-2 mt-2 rounded-xl">
               <div className="space-y-2">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.

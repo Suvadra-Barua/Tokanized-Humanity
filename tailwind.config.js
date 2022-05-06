@@ -12,10 +12,17 @@ module.exports = {
         purple: colors.violet,
         pink: colors.pink,
         rose: colors.rose,
-        primary:'#34d399',
-        secondary:'#059669'
+        primary:'#6366f1',
+        secondary:'#4f46e5'
+      },
+      borderWidth: {
+      DEFAULT: '1px',},
+      borderColor:{
+        DEFAULT: ' rgb(107 114 128 / 0.15)',
       }
+
     },
  },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography")]
 }

@@ -20,12 +20,11 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #92c3e1;
+  background: #6366f1;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2178ad;
+  background: #4f46e5;
 }
-
 
 .slick-slider .slick-slide {
   padding: 0 5px;

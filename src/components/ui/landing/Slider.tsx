@@ -31,7 +31,9 @@ function SliderComponent() {
                   has been diagnosed with AML Leukemia and ha
                 </p>
                 <div className="text-xs font-bold">
-                  $13,733 raised
+                  <span className="text-primary">
+                    $13,733 raised
+                  </span>
                   ·
                   114 donations
                 </div>

@@ -1,3 +1,4 @@
+import { Menu } from '@headlessui/react';
 import { Link } from 'react-router-dom';
 
 function FundRequestDetails() {
@@ -24,13 +25,47 @@ function FundRequestDetails() {
             <p className="py-2 text-sm text-gray-500/80">163 donations</p>
           </div>
 
-          <div className="w-full pt-4 space-y-4">
-            <button
-              className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary"
-              type="button"
-            >
-              Donate
-            </button>
+          <div className="relative w-full pt-4 space-y-4">
+            <Menu>
+              <Menu.Button className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary">
+                Donate
+
+              </Menu.Button>
+              <Menu.Items className="absolute rounded-xl left-3 w-96 bg-gray-50 dark:bg-gray-800">
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      type="button"
+                      className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+
+                    >
+                      Donate $10
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      type="button"
+                      className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+
+                    >
+                      Donate $20
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      type="button"
+                      className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                    >
+                      Donate $30
+                    </button>
+                  )}
+                </Menu.Item>
+              </Menu.Items>
+            </Menu>
             <button
               className="block w-full py-2 transition border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
               type="button"
@@ -38,6 +73,7 @@ function FundRequestDetails() {
               Share
             </button>
           </div>
+
           <div className="py-4 space-y-3">
 
             <div className="flex items-center space-x-1">

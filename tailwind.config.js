@@ -12,8 +12,8 @@ module.exports = {
         purple: colors.violet,
         pink: colors.pink,
         rose: colors.rose,
-        primary:'#6366f1',
-        secondary:'#4f46e5'
+        primary:'#06b6d4',
+        secondary:'#0891b2'
       },
       borderWidth: {
       DEFAULT: '1px',},

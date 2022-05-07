@@ -1,5 +1,9 @@
 import { Menu } from '@headlessui/react';
+import { AiFillEdit } from 'react-icons/ai';
+import { BiSend } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import TextArea from '../components/ui/form-fields/TextArea';
+import { isOwner } from '../utils';
 
 function FundRequestDetails() {
   return (
@@ -26,46 +30,56 @@ function FundRequestDetails() {
           </div>
 
           <div className="relative w-full pt-4 space-y-4">
-            <Menu>
-              <Menu.Button className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary">
-                Donate
 
-              </Menu.Button>
-              <Menu.Items className="absolute rounded-xl left-3 w-96 bg-gray-50 dark:bg-gray-800">
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      type="button"
-                      className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+            {
+       isOwner ? (
+         <button type="button" className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary">
+           Withdraw
+         </button>
+       )
+         : (
+           <Menu>
+             <Menu.Button
+               className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary"
+             >
+               Donate
 
-                    >
-                      Donate $10
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      type="button"
-                      className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
-
-                    >
-                      Donate $20
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      type="button"
-                      className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
-                    >
-                      Donate $30
-                    </button>
-                  )}
-                </Menu.Item>
-              </Menu.Items>
-            </Menu>
+             </Menu.Button>
+             <Menu.Items className="absolute rounded-xl left-3 w-96 bg-gray-50 dark:bg-gray-800">
+               <Menu.Item>
+                 {({ active }) => (
+                   <button
+                     type="button"
+                     className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                   >
+                     Silver
+                   </button>
+                 )}
+               </Menu.Item>
+               <Menu.Item>
+                 {({ active }) => (
+                   <button
+                     type="button"
+                     className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                   >
+                     Gold
+                   </button>
+                 )}
+               </Menu.Item>
+               <Menu.Item>
+                 {({ active }) => (
+                   <button
+                     type="button"
+                     className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                   >
+                     Platinum
+                   </button>
+                 )}
+               </Menu.Item>
+             </Menu.Items>
+           </Menu>
+         )
+     }
             <button
               className="block w-full py-2 transition border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
               type="button"
@@ -76,7 +90,7 @@ function FundRequestDetails() {
 
           <div className="py-4 space-y-3">
 
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-2">
               <img
                 src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
                 alt=""
@@ -98,26 +112,39 @@ function FundRequestDetails() {
         </div>
 
       </div>
-      <div className="flex items-center">
-        <Link to="/user/1" className="flex-shrink-0">
-          <img
-            className="inline-block w-12 h-12 mr-4 rounded-full"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
-            alt=""
-          />
-        </Link>
-        <div className="font-semibold ">
-          <Link to="/user/1" className="text-secondary dark:text-primary">
-            Miss Jane
+      {
+   isOwner ? (
+     <button
+       type="button"
+       className="flex items-center transition rounded-full text-primary hover:text-secondary"
+     >
+       <AiFillEdit />
+       <span className="ml-4">Edit</span>
+     </button>
+   )
+     : (
+       <div className="flex items-center">
+         <Link to="/user/1" className="flex-shrink-0">
+           <img
+             className="inline-block w-12 h-12 mr-4 rounded-full"
+             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
+             alt=""
+           />
+         </Link>
+         <div className="font-semibold ">
+           <Link to="/user/1" className="text-secondary dark:text-primary">
+             Miss Jane
 
-          </Link>
-          {' '}
-          is organizing this fundraiser.
-          <p className="mt-1 text-sm font-normal text-gray-500/60">
-            Senior Software Engineer at Tero Labs LLC.
-          </p>
-        </div>
-      </div>
+           </Link>
+           {' '}
+           is organizing this fundraiser.
+           <p className="mt-1 text-sm font-normal text-gray-500/60">
+             Senior Software Engineer at Tero Labs LLC.
+           </p>
+         </div>
+       </div>
+     )
+ }
       <div className="flex items-center space-x-2 text-gray-500/80">
         <p className="text-sm italic">
           Created April 26, 2022 at 12:00 AM
@@ -136,6 +163,24 @@ function FundRequestDetails() {
 
         In December of last year, a family of four came to Chicago from Dhaka as international students for better education, opportunities, and an overall better lifestyle.
       </p>
+      {
+    isOwner && (
+    <div className="relative">
+      <TextArea
+        className="max-w-3xl"
+        placeholder="Post updates..."
+      />
+      <button
+        type="button"
+        className="absolute p-1 rounded-full bottom-4 right-40 text-primary hover:bg-primary hover:text-white"
+      >
+        <BiSend
+          className="w-4 h-4"
+        />
+      </button>
+    </div>
+    )
+     }
     </div>
   );
 }

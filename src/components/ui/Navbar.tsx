@@ -1,19 +1,19 @@
-import { useContext } from 'react';
-import { BiMoon, BiSun } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
-import { MainContext } from '../../providers/MainProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import { role } from '../../utils';
 
 function Navbar() {
-  const { themeData } = useContext(MainContext);
-  const [theme, setTheme] = themeData;
+  const navigate = useNavigate();
 
-  const toggleColorMode = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  };
+  //   const { themeData } = useContext(MainContext);
+  //   const [theme, setTheme] = themeData;
+
+  // const toggleColorMode = () => {
+  //   if (theme === 'light') {
+  //     setTheme('dark');
+  //   } else {
+  //     setTheme('light');
+  //   }
+  // };
 
   return (
     <div
@@ -31,21 +31,34 @@ function Navbar() {
       </Link>
       <div className="flex items-center">
 
-        <button type="button" onClick={toggleColorMode} className="mr-4">
-          {
-           theme === 'light'
-             ? (
-               <BiMoon className="h-5 text-gray-400 transition duration-500 fill-current hover:text-gray-900" />
-             ) : (
-               <BiSun className="h-5 text-gray-400 transition duration-500 fill-current hover:text-white" />
+        {
+             role() === 'dao' ? (
+
+               <button
+                 onClick={() => navigate('/applications')}
+                 className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+                 type="button"
+               >
+                 Applications
+               </button>
              )
-          }
-        </button>
+               : (
+                 <button
+                   onClick={() => navigate('/create/campaign')}
+                   className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+                   type="button"
+                 >
+                   Create a Campaign
+                 </button>
+               )
+}
+
         <button
+          onClick={() => navigate('/sign-up')}
           className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
           type="button"
         >
-          Sign In
+          Connect Wallet
         </button>
       </div>
     </div>

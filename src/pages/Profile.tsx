@@ -3,25 +3,25 @@ import { Link } from 'react-router-dom';
 
 function Profile() {
   return (
-    <div className="md:flex no-wrap md:-mx-2 ">
-      <div className="w-full md:w-3/12 md:mx-2">
-        <div className="p-3 border-b-4 border-primary">
+    <div className="md:flex ">
+      <div className="w-full md:w-1/3">
+        <div className="border-b-4 border-primary">
           <div className="overflow-hidden image">
             <img
-              className="w-full h-auto mx-auto rounded-xl"
+              className="w-full h-auto max-w-xs mx-auto rounded-xl"
               src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
               alt=""
             />
           </div>
-          <h1 className="my-1 text-lg font-bold leading-8 ">Jane Doe</h1>
-          <h3 className="leading-6 font-lg text-semibold">Owner at Her Company Inc.</h3>
+          <h3 className="my-1 text-lg font-bold leading-8 ">Jane Doe</h3>
+          <p className="leading-6 text-semibold">isOwner at Her Company Inc.</p>
           <p className="text-sm leading-6 ">
             Lorem ipsum dolor sit amet
             consectetur adipisicing elit.
             Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt
           </p>
           <ul
-            className="px-3 py-2 mt-3 divide-y rounded shadow-sm hover:shadow"
+            className="py-2 mt-3 divide-y rounded shadow-sm hover:shadow"
           >
             <li className="flex items-center py-3">
               <span>Status</span>
@@ -40,7 +40,7 @@ function Profile() {
           </ul>
         </div>
         <div className="my-4" />
-        <div className="p-3 hover:shadow">
+        <div className="px-3 pt-3 hover:shadow">
           <div className="flex items-center space-x-3 text-xl font-semibold leading-8 ">
             <span className="text-primary">
               <svg
@@ -61,7 +61,7 @@ function Profile() {
             <span>Similar Profiles</span>
           </div>
           <div className="grid grid-cols-3">
-            <div className="my-2 text-center">
+            <div className="mt-2 text-center">
 
               <Link to="/user/1">
 
@@ -72,7 +72,7 @@ function Profile() {
                 />
               </Link>
             </div>
-            <div className="my-2 text-center">
+            <div className="mt-2 text-center">
 
               <Link to="/user/1">
 
@@ -83,7 +83,7 @@ function Profile() {
                 />
               </Link>
             </div>
-            <div className="my-2 text-center">
+            <div className="mt-2 text-center">
 
               <Link to="/user/1">
 
@@ -145,7 +145,7 @@ function Profile() {
 
         </div>
 
-        <div className="my-4" />
+        <div className="mt-2" />
 
         <div className="p-3 rounded-sm shadow-sm">
 

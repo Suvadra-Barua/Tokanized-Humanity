@@ -2,6 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BiUpload } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import InputField from '../components/ui/form-fields/InputField';
 import TextArea from '../components/ui/form-fields/TextArea';
@@ -21,6 +22,7 @@ const validationSchema = yup.object().shape({
 });
 
 function CreateCampaign() {
+  const navigate = useNavigate();
   const [isHovering, setIsHovering] = useState(false);
   const [bannerError, setBannerError] = useState('');
   const [banner, setBanner] = useState<File>();
@@ -47,6 +49,7 @@ function CreateCampaign() {
 
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);
+    navigate('/');
   });
 
   return (

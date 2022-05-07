@@ -7,6 +7,9 @@ interface ISignUp{
   name:string,
   email:string,
   address:string,
+  dob:Date,
+  contact:string,
+  gender:string,
   profilePicture:File|undefined,
   passportImage:File|undefined,
   nIDImage:File|undefined,
@@ -17,6 +20,9 @@ const validationSchema = yup.object().shape({
   name: yup.string().required('Name is required'),
   email: yup.string().email('Invalid email').required('Email is required'),
   address: yup.string().required('Address is required'),
+  dob: yup.date().required('Date of birth is required').typeError('Date of birth is required'),
+  contact: yup.string().required('Contact Number is required'),
+  gender: yup.string().required('Gender is required'),
   profilePicture: yup.mixed().required('Profile picture is required'),
   passportImage: yup.mixed().required('Passport image is required'),
   nIDImage: yup.mixed().required('NID image is required'),
@@ -37,14 +43,16 @@ function SignUp() {
 
   });
 
+  console.log(watch('gender'));
+
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);
   });
 
   return (
-    <div className="w-full max-w-lg">
+    <div className="w-full max-w-4xl">
       <h2 className="text-2xl font-bold">Create Campaign</h2>
-      <form onSubmit={onSubmit} className="pt-6 space-y-6">
+      <form onSubmit={onSubmit} className="grid grid-cols-2 gap-6 pt-6">
         <InputField
           type="text"
           label=" Name"
@@ -65,6 +73,90 @@ function SignUp() {
       }
         />
 
+        <InputField
+          type="date"
+          label="Date of Birth"
+          {...register('dob')}
+          errorMessage={
+        errors.dob && errors.dob.message
+      }
+        />
+
+        <InputField
+          type="tel"
+          label="Contact Number"
+          {...register('contact')}
+          errorMessage={
+        errors.contact && errors.contact.message
+      }
+        />
+
+        <div>
+          <p className={`font-medium mb-3 ${errors.gender ? 'text-red-500' : 'text-gray-500'}`}>
+            Gender
+          </p>
+          <div className="flex justify-between">
+            <div className="form-check form-check-inline">
+              <label className="inline-block form-check-label" htmlFor="inlineRadio10">
+
+                <input
+                  className="float-left w-4 h-4 mt-1 mr-2 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-full appearance-none cursor-pointer form-check-input checked:bg-primary checked:border-primary focus:outline-none"
+                  type="radio"
+                  name="gender"
+                  onChange={(e) => setValue(
+                    'gender',
+                    e.target.value,
+                  )}
+                  id="inlineRadio1"
+                  value="male"
+                />
+                Male
+
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+
+              <label className="inline-block form-check-label" htmlFor="inlineRadio20">
+                <input
+                  className="float-left w-4 h-4 mt-1 mr-2 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-full appearance-none cursor-pointer form-check-input checked:bg-primary checked:border-primary focus:outline-none"
+                  type="radio"
+                  name="gender"
+                  onChange={(e) => setValue(
+                    'gender',
+                    e.target.value,
+                  )}
+                  id="inlineRadio2"
+                  value="female"
+                />
+                Female
+
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+
+              <label
+                className="inline-block form-check-label"
+                htmlFor="inlineRadio30"
+              >
+                <input
+                  className="float-left w-4 h-4 mt-1 mr-2 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-full appearance-none form-check-input checked:bg-primary checked:border-primary focus:outline-none"
+                  type="radio"
+                  name="gender"
+                  onChange={(e) => setValue(
+                    'gender',
+                    e.target.value,
+                  )}
+                  id="inlineRadio3"
+                  value="other"
+                />
+                Other
+              </label>
+            </div>
+          </div>
+          {
+  errors.gender && (<p className="text-xs text-red-500">{errors.gender.message}</p>)
+}
+        </div>
         <div className="space-y-1">
           <p className={`font-medium ${errors.profilePicture ? 'text-red-500' : 'text-gray-500'}`}>
             Profile Image
@@ -325,10 +417,10 @@ function SignUp() {
 
           </div>
           {
-            errors.nIDImage && (<p className="text-xs text-red-500">{errors.nIDImage.message}</p>)
+            errors.drivingLicenseImage && (<p className="text-xs text-red-500">{errors.drivingLicenseImage.message}</p>)
           }
         </div>
-
+        <div />
         <div className="flex justify-end">
           <button
             type="submit"

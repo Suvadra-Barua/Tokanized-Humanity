@@ -3,7 +3,7 @@ import React from 'react';
 const InputField = React.forwardRef<
   HTMLInputElement,
   {
-    type?: 'text'| 'date' | 'number' | 'password' | 'email' | 'tel' | 'address' | 'url' | 'search' | 'color' | 'file' | 'time' | 'datetime-local' | 'month' | 'range' | 'week';
+    type?: 'text'| 'date' | 'radio' | 'number' | 'password' | 'email' | 'tel' | 'address' | 'url' | 'search' | 'color' | 'file' | 'time' | 'datetime-local' | 'month' | 'range' | 'week';
     className?: string;
     errorMessage?: string;
     label?: string;

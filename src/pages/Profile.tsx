@@ -123,12 +123,8 @@ function Profile() {
                 <div className="px-4 py-2">+11 998001001</div>
               </div>
               <div className="grid grid-cols-2">
-                <div className="px-4 py-2 font-semibold">Current Address</div>
+                <div className="px-4 py-2 font-semibold">Address</div>
                 <div className="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
-              </div>
-              <div className="grid grid-cols-2">
-                <div className="px-4 py-2 font-semibold">Permanant Address</div>
-                <div className="px-4 py-2">Arlington Heights, IL, Illinois</div>
               </div>
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Email.</div>

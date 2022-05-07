@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BiDonateHeart, BiMoon, BiSun } from 'react-icons/bi';
+import { BiMoon, BiSun } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { MainContext } from '../../providers/MainProvider';
 
@@ -23,12 +23,9 @@ function Navbar() {
       }}
     >
       <Link className="flex items-center mr-3 space-x-2" to="/">
-        <BiDonateHeart
-          size={32}
-          className="text-primary"
-        />
 
-        <h4 className="text-xl font-black text-primary">
+        <img src="/logo.png" alt="" className="w-10 h-10" />
+        <h4 className="text-2xl font-black text-primary">
           Tokenized Humanity
         </h4>
       </Link>

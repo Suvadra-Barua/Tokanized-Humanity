@@ -3,6 +3,10 @@
 // eslint-disable-next-line import/prefer-default-export
 export const isAuthenticated = true;
 
+export const role = () => (isAuthenticated && 'dao');
+
+export const isOwner = (false);
+
 // all regex
 export const emailRegex = /^([a-z\d._-]+)@([a-z\d_-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/i;
 export const lowercaseRegex = /(?=.*[a-z])/;

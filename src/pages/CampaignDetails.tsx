@@ -8,7 +8,6 @@ import campaignData from '../utils/data/campaignData';
 
 function CampaignDetails() {
   const params = useParams();
-  console.log(params);
 
   return (
     <div className="w-full">
@@ -52,55 +51,54 @@ function CampaignDetails() {
 
                     <div className="relative w-full pt-4 space-y-4">
 
-                      {
-       isOwner ? (
-         <button type="button" className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary">
-           Withdraw
-         </button>
-       )
-         : (
-           <Menu>
-             <Menu.Button
-               className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary"
-             >
-               Donate
+                      { isOwner(params.id as unknown as number - 1)
+                        ? (
+                          <button type="button" className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary">
+                            Withdraw
+                          </button>
+                        )
+                        : (
+                          <Menu>
+                            <Menu.Button
+                              className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary"
+                            >
+                              Donate
 
-             </Menu.Button>
-             <Menu.Items className="absolute rounded-xl left-3 w-96 bg-gray-50 dark:bg-gray-800">
-               <Menu.Item>
-                 {({ active }) => (
-                   <button
-                     type="button"
-                     className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
-                   >
-                     Silver
-                   </button>
-                 )}
-               </Menu.Item>
-               <Menu.Item>
-                 {({ active }) => (
-                   <button
-                     type="button"
-                     className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
-                   >
-                     Gold
-                   </button>
-                 )}
-               </Menu.Item>
-               <Menu.Item>
-                 {({ active }) => (
-                   <button
-                     type="button"
-                     className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
-                   >
-                     Platinum
-                   </button>
-                 )}
-               </Menu.Item>
-             </Menu.Items>
-           </Menu>
-         )
-     }
+                            </Menu.Button>
+                            <Menu.Items className="absolute rounded-xl left-3 w-96 bg-gray-50 dark:bg-gray-800">
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    type="button"
+                                    className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                                  >
+                                    Silver
+                                  </button>
+                                )}
+                              </Menu.Item>
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    type="button"
+                                    className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                                  >
+                                    Gold
+                                  </button>
+                                )}
+                              </Menu.Item>
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    type="button"
+                                    className={`${active && 'bg-blue-500'} block hover:bg-gray-500/10 p-2 w-full`}
+                                  >
+                                    Platinum
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            </Menu.Items>
+                          </Menu>
+                        )}
                       <button
                         className="block w-full py-2 transition border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
                         type="button"
@@ -147,7 +145,7 @@ function CampaignDetails() {
 
                 </div>
                 {
-   isOwner ? (
+   isOwner(params.id as unknown as number - 1) ? (
      <button
        type="button"
        className="flex items-center transition rounded-full text-primary hover:text-secondary"
@@ -203,7 +201,7 @@ function CampaignDetails() {
                   }
                 </p>
                 {
-    isOwner && (
+    isOwner(params.id as unknown as number - 1) && (
     <div className="relative">
       <TextArea
         className="max-w-3xl"

@@ -1,3 +1,4 @@
+import { useContractKit } from '@celo-tools/use-contractkit';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getRole, isAuthenticated } from '../../utils';
@@ -11,6 +12,12 @@ function Navbar() {
     setIsLoggedIn(isAuthenticated());
     getRole();
   }, [isLoggedIn]);
+  const { connect, address, destroy } = useContractKit();
+
+  const handleConnect = () => {
+    connect().catch((err:any) => console.log(err));
+    navigate('/sign-up');
+  };
 
   return (
     <div
@@ -26,7 +33,7 @@ function Navbar() {
       </Link>
       <div className="flex items-center">
 
-        { localStorage.getItem('user') && localStorage.getItem('user')!.length > 1 ? (
+        { address && localStorage.getItem('user') && localStorage.getItem('user')!.length > 1 ? (
           <div className="flex items-center space-x-2">
             <p>
               { JSON.parse(localStorage.getItem('user')!).name}
@@ -60,6 +67,7 @@ function Navbar() {
                 localStorage.clear();
                 setIsLoggedIn(false);
                 navigate('/');
+                destroy();
               }}
               className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
               type="button"
@@ -70,7 +78,7 @@ function Navbar() {
         ) : (
           <div className="flex items-center">
             <button
-              onClick={() => navigate('/sign-up')}
+              onClick={handleConnect()}
               className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
               type="button"
             >

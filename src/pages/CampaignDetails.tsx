@@ -6,12 +6,12 @@ import TextArea from '../components/ui/form-fields/TextArea';
 import { isOwner } from '../utils';
 import campaignData from '../utils/data/campaignData';
 
-function FundRequestDetails() {
+function CampaignDetails() {
   const params = useParams();
   console.log(params);
 
   return (
-    <div>
+    <div className="w-full">
       {
           params.id
             ? (
@@ -231,4 +231,4 @@ function FundRequestDetails() {
   );
 }
 
-export default FundRequestDetails;
+export default CampaignDetails;

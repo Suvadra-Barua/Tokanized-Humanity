@@ -1,8 +1,8 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import Layout from '../components/ui/Layout';
 import ApplicationDetails from '../pages/ApplicationDetails';
+import CampaignDetails from '../pages/CampaignDetails';
 import CreateCampaign from '../pages/CreateCampaign';
-import FundRequestDetails from '../pages/FundRequestDetails';
 import Landing from '../pages/Landing';
 import MembershipApplications from '../pages/MembershipApplications';
 import Profile from '../pages/Profile';
@@ -15,7 +15,7 @@ function Routes() {
     element: <Layout />,
     children: [
       { path: '/', element: <Landing /> },
-      { path: '/fund-request/:id', element: <FundRequestDetails /> },
+      { path: '/fund-request/:id', element: <CampaignDetails /> },
       { path: '/user/:id', element: <Profile /> },
       { path: '/sign-up', element: <SignUp /> },
 

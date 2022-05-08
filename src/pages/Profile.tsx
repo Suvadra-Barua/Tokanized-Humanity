@@ -53,9 +53,7 @@ function Profile() {
      params.id
        ? (
          <div className="md:flex">
-           <p>
-             {params.id}
-           </p>
+
            <div className="w-full md:w-1/3">
              <div className="border-b-4 border-primary">
                <div className="overflow-hidden image">

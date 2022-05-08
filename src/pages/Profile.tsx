@@ -1,4 +1,5 @@
 import { BiFile, BiUser } from 'react-icons/bi';
+import { FaQuoteLeft } from 'react-icons/fa';
 import { Link, useParams } from 'react-router-dom';
 import campaignCreatorData from '../utils/data/campaignCreatorData';
 import campaignData from '../utils/data/campaignData';
@@ -71,11 +72,14 @@ function Profile() {
                }
 
                </p>
-               <p className="text-sm leading-6 ">
-                 {
+               <div className="flex space-x-2 pt-6">
+                 <FaQuoteLeft className="text-primary" />
+                 <p className="text-sm italic leading-6 ">
+                   {
                  campaignCreatorData[params.id as unknown as number - 1].bio
 }
-               </p>
+                 </p>
+               </div>
                <ul
                  className="py-2 mt-3 divide-y rounded shadow-sm hover:shadow"
                >
@@ -124,39 +128,22 @@ function Profile() {
                  <span>Similar Profiles</span>
                </div>
                <div className="grid grid-cols-3">
-                 <div className="mt-2 text-center">
 
-                   <Link to="/user/1">
+                 {
+                  campaignCreatorData.slice(0, 3).map((creator) => (
+                    <div key={creator.id} className="mt-2 text-center">
 
-                     <img
-                       className="w-16 h-16 mx-auto rounded-full"
-                       src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                       alt=""
-                     />
-                   </Link>
-                 </div>
-                 <div className="mt-2 text-center">
+                      <Link to={`/user/${creator.id}`}>
 
-                   <Link to="/user/1">
-
-                     <img
-                       className="w-16 h-16 mx-auto rounded-full"
-                       src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                       alt=""
-                     />
-                   </Link>
-                 </div>
-                 <div className="mt-2 text-center">
-
-                   <Link to="/user/1">
-
-                     <img
-                       className="w-16 h-16 mx-auto rounded-full"
-                       src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                       alt=""
-                     />
-                   </Link>
-                 </div>
+                        <img
+                          className="w-16 h-16 mx-auto rounded-full"
+                          src={creator.profilePicture}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                  ))
+             }
                </div>
              </div>
            </div>

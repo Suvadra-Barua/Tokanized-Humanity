@@ -9,7 +9,8 @@ function Profile() {
   console.log(params.id);
 
   function getSuccessfulProject() {
-    for (let i = 0; i < campaignData.length; i += i) {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < campaignData.length; i++) {
       if (campaignData[i].creatorData.id === (3)) {
         return (
           <li>

@@ -201,6 +201,23 @@ function CampaignDetails() {
                   }
                 </p>
                 {
+                  campaignData[params.id as unknown as number - 1].comments.map(
+                    (comment) => (
+                      <div key={comment.id} className="flex items-center space-x-2">
+                        <img
+                          src={comment.createdBy.profilePicture}
+                          alt=""
+                          className="flex flex-shrink-0 w-10 h-10 rounded-full"
+                        />
+                        <div>
+                          <p className="font-semibold">{comment.createdBy.name}</p>
+                          <p className="text-sm">{comment.comment}</p>
+                        </div>
+                      </div>
+                    ),
+                  )
+                }
+                {
     isOwner(params.id as unknown as number - 1) && (
     <div className="relative">
       <TextArea

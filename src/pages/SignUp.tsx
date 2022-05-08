@@ -1,7 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import InputField from '../components/ui/form-fields/InputField';
+import { getRole } from '../utils';
 
 interface ISignUp{
   name:string,
@@ -18,19 +20,21 @@ interface ISignUp{
 
 const validationSchema = yup.object().shape({
   name: yup.string().required('Name is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
-  address: yup.string().required('Address is required'),
-  dob: yup.date().required('Date of birth is required').typeError('Date of birth is required'),
-  contact: yup.string().required('Contact Number is required'),
-  gender: yup.string().required('Gender is required'),
-  profilePicture: yup.mixed().required('Profile picture is required'),
-  passportImage: yup.mixed().required('Passport image is required'),
-  nIDImage: yup.mixed().required('NID image is required'),
-  drivingLicenseImage: yup.mixed().required('Driving license image is required'),
+  // email: yup.string().email('Invalid email').required('Email is required'),
+  // address: yup.string().required('Address is required'),
+  // dob: yup.date().required('Date of birth is required').typeError('Date of birth is required'),
+  // contact: yup.string().required('Contact Number is required'),
+  // gender: yup.string().required('Gender is required'),
+  // profilePicture: yup.mixed().required('Profile picture is required'),
+  // passportImage: yup.mixed().required('Passport image is required'),
+  // nIDImage: yup.mixed().required('NID image is required'),
+  // drivingLicenseImage: yup.mixed().required('Driving license image is required'),
 
 });
 
 function SignUp() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -43,10 +47,13 @@ function SignUp() {
 
   });
 
-  console.log(watch('gender'));
-
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);
+
+    localStorage.setItem('user', JSON.stringify(data));
+    getRole();
+    console.log(getRole());
+    navigate('/');
   });
 
   return (

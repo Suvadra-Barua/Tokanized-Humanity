@@ -7,7 +7,7 @@ import Landing from '../pages/Landing';
 import MembershipApplications from '../pages/MembershipApplications';
 import Profile from '../pages/Profile';
 import SignUp from '../pages/SignUp';
-import { isAuthenticated, role } from '../utils';
+import { getRole } from '../utils';
 
 function Routes() {
   const withoutLogin = {
@@ -24,7 +24,7 @@ function Routes() {
 
   const withLogin = {
     path: '/create',
-    element: isAuthenticated ? <Layout /> : <Navigate to="/" />,
+    element: getRole() === 'user' ? <Layout /> : <Navigate to="/" />,
     children: [
       { path: '/create/campaign', element: <CreateCampaign /> },
 
@@ -33,7 +33,7 @@ function Routes() {
 
   const daoRoutes = {
     path: '/applications',
-    element: role() === 'dao' ? <Layout /> : <Navigate to="/" />,
+    element: getRole() === 'dao' ? <Layout /> : <Navigate to="/" />,
     children: [
       { path: '/applications', element: <MembershipApplications /> },
       { path: '/applications/:id', element: <ApplicationDetails /> },

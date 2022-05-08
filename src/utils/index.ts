@@ -1,9 +1,15 @@
-// TODO
-// export const isAuthenticated = () => (!!store.getState().userReducer.user);
-// eslint-disable-next-line import/prefer-default-export
-export const isAuthenticated = true;
+export const isAuthenticated = () => !!localStorage.getItem('user');
 
-export const role = () => (isAuthenticated && 'dao');
+export function getRole() {
+  if (!isAuthenticated) {
+    return null;
+  }
+  if (localStorage.getItem('user')) {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    return user.name === 'admin' ? 'dao' : 'user';
+  }
+  return null;
+}
 
 export const isOwner = (false);
 

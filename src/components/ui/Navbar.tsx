@@ -1,19 +1,16 @@
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { role } from '../../utils';
+import { getRole, isAuthenticated } from '../../utils';
 
 function Navbar() {
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  //   const { themeData } = useContext(MainContext);
-  //   const [theme, setTheme] = themeData;
-
-  // const toggleColorMode = () => {
-  //   if (theme === 'light') {
-  //     setTheme('dark');
-  //   } else {
-  //     setTheme('light');
-  //   }
-  // };
+  useEffect(() => {
+    isAuthenticated();
+    setIsLoggedIn(isAuthenticated());
+    getRole();
+  }, [isLoggedIn]);
 
   return (
     <div
@@ -29,43 +26,65 @@ function Navbar() {
       </Link>
       <div className="flex items-center">
 
-        {
-             role() === 'dao' ? (
+        { localStorage.getItem('user') && localStorage.getItem('user')!.length > 1 ? (
+          <div className="flex space-x-2 items-center">
+            <Link to="/profile">
+              { JSON.parse(localStorage.getItem('user')!).name}
+            </Link>
+            {
+              getRole() === 'dao' ? (
+                (
+                  <button
+                    onClick={() => navigate('/applications')}
+                    className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+                    type="button"
+                  >
+                    Applications
+                  </button>
+                )
+              )
+                : getRole() === 'user' && (
 
-               <button
-                 onClick={() => navigate('/applications')}
-                 className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
-                 type="button"
-               >
-                 Applications
-               </button>
-             )
-               : (
-                 <button
-                   onClick={() => navigate('/create/campaign')}
-                   className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
-                   type="button"
-                 >
-                   Create a Campaign
-                 </button>
-               )
-}
+                <button
+                  onClick={() => navigate('/create/campaign')}
+                  className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+                  type="button"
+                >
+                  Create a Campaign
+                </button>
+                )
+            }
+            <button
+              onClick={() => {
+                localStorage.clear();
+                setIsLoggedIn(false);
+                navigate('/');
+              }}
+              className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+              type="button"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center">
+            <button
+              onClick={() => navigate('/sign-up')}
+              className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+              type="button"
+            >
+              Sign In
+            </button>
+            <button
+              onClick={() => navigate('/sign-up')}
+              className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+              type="button"
+            >
+              Connect Wallet
+            </button>
+          </div>
+        )}
 
-        <button
-          onClick={() => navigate('/sign-up')}
-          className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
-          type="button"
-        >
-          Sign In
-        </button>
-
-        <button
-          onClick={() => navigate('/sign-up')}
-          className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
-          type="button"
-        >
-          Connect Wallet
-        </button>
       </div>
     </div>
 

@@ -11,13 +11,18 @@ function HomeFeed() {
     campaignData.map((campaign) => (
       <div key={campaign.id} className="w-full py-2 mb-4">
         <div className="flex">
-          <div className="flex-shrink-0">
-            <img
-              className="rounded-full w-14 h-14"
-              src={campaign.creatorData.profilePicture}
-              alt=""
-            />
-          </div>
+          <Link
+            to={`/user/${campaign.creatorData.id}`}
+          >
+            <div className="flex-shrink-0">
+              <img
+                className="rounded-full w-14 h-14"
+                src={campaign.creatorData.profilePicture}
+                alt=""
+              />
+            </div>
+          </Link>
+
           <div className="w-full ml-2 rounded-xl">
             <div className="text-sm">
               <Link

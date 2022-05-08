@@ -31,13 +31,15 @@ function SliderComponent() {
                  campaign.description
                }
                </p>
-               <div className="text-xs font-bold">
+               <div className="text-xs font-bold ">
                  <span className="text-primary">
                    {campaign.fundRaised}
                    {' '}
                    raised
                  </span>
-                 ·
+                 <span className="mx-4">
+                   |
+                 </span>
                  {campaign.donationCount}
                  {' '}
                  donations

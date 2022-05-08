@@ -11,6 +11,7 @@ const campaignData = [
     fundRaised: '1000',
     fundGoal: '1500',
     donationCount: '6',
+    createdAt: '2h ago',
     banner: 'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80',
     donations: [
       {
@@ -28,13 +29,13 @@ const campaignData = [
       {
         id: 1,
         comment: 'Comment 1',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
       {
         id: 2,
         comment: 'Comment 2',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
     ],
@@ -49,6 +50,7 @@ const campaignData = [
     fundRaised: '1000',
     fundGoal: '1500',
     donationCount: '6',
+    createdAt: '2h ago',
     banner: 'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80',
     donations: [
       {
@@ -64,15 +66,15 @@ const campaignData = [
     ],
     comments: [
       {
-        id: 1,
+        id: 3,
         comment: 'Comment 1',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
       {
-        id: 2,
+        id: 4,
         comment: 'Comment 2',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
     ],
@@ -87,6 +89,7 @@ const campaignData = [
     fundRaised: '1000',
     fundGoal: '1500',
     donationCount: '6',
+    createdAt: '2h ago',
     banner: 'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80',
     donations: [
       {
@@ -102,15 +105,15 @@ const campaignData = [
     ],
     comments: [
       {
-        id: 1,
+        id: 5,
         comment: 'Comment 1',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
       {
-        id: 2,
+        id: 6,
         comment: 'Comment 2',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
     ],
@@ -125,6 +128,7 @@ const campaignData = [
     fundRaised: '1000',
     fundGoal: '1500',
     donationCount: '6',
+    createdAt: '2h ago',
     banner: 'https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80',
     donations: [
       {
@@ -140,15 +144,15 @@ const campaignData = [
     ],
     comments: [
       {
-        id: 1,
+        id: 7,
         comment: 'Comment 1',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
       {
-        id: 2,
+        id: 8,
         comment: 'Comment 2',
-        createdBy: 'John Doe',
+        createdBy: campaignCreatorData[0],
         createdDate: '01/01/2020',
       },
     ],

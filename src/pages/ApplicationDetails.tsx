@@ -1,7 +1,10 @@
 import { BiFile, BiUser } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import applicationData from '../utils/data/applicationData';
 
 function ApplicationDetails() {
+  const navigate = useNavigate();
+
   return (
     <div className="md:flex ">
       <div className="w-full md:w-1/3">
@@ -37,10 +40,7 @@ function ApplicationDetails() {
                 </span>
               </span>
             </li>
-            <li className="flex items-center py-3">
-              <span>Member since</span>
-              <span className="ml-auto">Nov 07, 2016</span>
-            </li>
+
           </ul>
         </div>
         <div className="my-4" />
@@ -65,39 +65,21 @@ function ApplicationDetails() {
             <span>Pending Applicants</span>
           </div>
           <div className="grid grid-cols-3">
-            <div className="mt-2 text-center">
+            {
+                  applicationData.slice(0, 3).map((applicants) => (
+                    <div key={applicants.id} className="mt-2 text-center">
 
-              <Link to="/user/1">
+                      <Link to={`/applications/${applicants.id}`}>
 
-                <img
-                  className="w-16 h-16 mx-auto rounded-full"
-                  src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                  alt=""
-                />
-              </Link>
-            </div>
-            <div className="mt-2 text-center">
-
-              <Link to="/user/1">
-
-                <img
-                  className="w-16 h-16 mx-auto rounded-full"
-                  src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                  alt=""
-                />
-              </Link>
-            </div>
-            <div className="mt-2 text-center">
-
-              <Link to="/user/1">
-
-                <img
-                  className="w-16 h-16 mx-auto rounded-full"
-                  src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                  alt=""
-                />
-              </Link>
-            </div>
+                        <img
+                          className="w-16 h-16 mx-auto rounded-full"
+                          src={applicants.image}
+                          alt=""
+                        />
+                      </Link>
+                    </div>
+                  ))
+             }
           </div>
         </div>
       </div>
@@ -114,10 +96,7 @@ function ApplicationDetails() {
                 <div className="px-4 py-2 font-semibold">First Name</div>
                 <div className="px-4 py-2">Jane</div>
               </div>
-              <div className="grid grid-cols-2">
-                <div className="px-4 py-2 font-semibold">Last Name</div>
-                <div className="px-4 py-2">Doe</div>
-              </div>
+
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Gender</div>
                 <div className="px-4 py-2">Female</div>
@@ -130,10 +109,7 @@ function ApplicationDetails() {
                 <div className="px-4 py-2 font-semibold">Current Address</div>
                 <div className="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
               </div>
-              <div className="grid grid-cols-2">
-                <div className="px-4 py-2 font-semibold">Permanant Address</div>
-                <div className="px-4 py-2">Arlington Heights, IL, Illinois</div>
-              </div>
+
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Email.</div>
                 <div className="px-4 py-2">
@@ -182,12 +158,14 @@ function ApplicationDetails() {
         <div className="flex justify-end space-x-8">
           <button
             type="button"
+            onClick={() => navigate('/applications')}
             className="block w-full py-2 transition border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
           >
             Reject
           </button>
           <button
             type="button"
+            onClick={() => navigate('/applications')}
             className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary"
           >
             Approve

@@ -1,6 +1,7 @@
 import { BiFile, BiUser } from 'react-icons/bi';
 import { Link, useParams } from 'react-router-dom';
 import campaignCreatorData from '../utils/data/campaignCreatorData';
+import campaignData from '../utils/data/campaignData';
 
 function Profile() {
   const params = useParams();
@@ -8,46 +9,42 @@ function Profile() {
   console.log(params.id);
 
   function getSuccessfulProject() {
-    // for (let i = 0; i < campaignData.length; i += i) {
-    //   if (campaignData[i].creatorData.id === (3)) {
-    //     return (
-    //       <li>
-    //         <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-primary group rounded-xl">
-    //           <Link
-    //             className="space-y-1 "
-    //             to={`/fund-request/${campaignData[i].id}`}
-    //           >
-    //             <img
-    //               className="object-fill w-full h-48 transition duration-700 group-hover:scale-105 rounded-xl"
-    //               src={campaignData[i].banner}
-    //               alt=""
-    //             />
-    //             <h2 className="pt-2">{campaignData[i].name}</h2>
-    //             <p className="text-sm text-gray-600 truncate">
-    //               {campaignData[i].description}
-    //             </p>
-    //             <div className="text-xs font-bold">
-    //               <span className="text-primary">
-    //                 {campaignData[i].fundRaised}
-    //                 {' '}
-    //                 raised
-    //               </span>
-    //               ·
-    //               {campaignData[i].donationCount}
-    //               {' '}
-    //               donations
-    //             </div>
-    //           </Link>
-    //         </div>
-    //       </li>
-    //     );
-    //   }
-    // }
-    return (
-      <p>
-        no project
-      </p>
-    );
+    for (let i = 0; i < campaignData.length; i += i) {
+      if (campaignData[i].creatorData.id === (3)) {
+        return (
+          <li>
+            <div className="p-2 transition duration-700 border-2 hover:bg-gray-500/5 hover:border-primary group rounded-xl">
+              <Link
+                className="space-y-1 "
+                to={`/fund-request/${campaignData[i].id}`}
+              >
+                <img
+                  className="object-fill w-full h-48 transition duration-700 group-hover:scale-105 rounded-xl"
+                  src={campaignData[i].banner}
+                  alt=""
+                />
+                <h2 className="pt-2">{campaignData[i].name}</h2>
+                <p className="text-sm text-gray-600 truncate">
+                  {campaignData[i].description}
+                </p>
+                <div className="text-xs font-bold">
+                  <span className="text-primary">
+                    {campaignData[i].fundRaised}
+                    {' '}
+                    raised
+                  </span>
+                  ·
+                  {campaignData[i].donationCount}
+                  {' '}
+                  donations
+                </div>
+              </Link>
+            </div>
+          </li>
+        );
+      }
+    }
+    return null;
   }
 
   return (

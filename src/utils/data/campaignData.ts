@@ -5,7 +5,7 @@ const campaignData = [
     id: 1,
     name: 'Support for Praveen & Tamil Selvi family',
     description: 'We have been saddened with the news that Archie Low has been diagnosed with AML Leukemia and ha We have been saddened with the news that Archie Low',
-    startDate: '01/01/2022,
+    startDate: '01/01/2022',
     endDate: '01/05/2022',
     creatorData: campaignCreatorData[0],
     fundRaised: '800',

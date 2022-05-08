@@ -157,6 +157,45 @@ const campaignData = [
       },
     ],
   },
+  {
+    id: 5,
+    name: 'Support Tekle Kiflemariam aka Wedi Tikul',
+    description: 'On behalf of the Eritrean community in diaspora we would like to bring to your attention that the renowned artist Tekle Kflemariam (Wedi Tkul) is in need of our support as he is diagnosed with an illness and is being taken care of in Italy. As we all know, Tekle, Wedi Tkul, gave most of his life and livelihood during the Eritrean liberation struggle and continued his heroic work until now. Through his art, Wedi Tkul strengthened the morale of Eritrean people and it’s combatants during liberation struggle and beyond.',
+    startDate: '04/01/2021',
+    endDate: '01/03/2021',
+    creatorData: campaignCreatorData[3],
+    fundRaised: '1000',
+    fundGoal: '1500',
+    donationCount: '6',
+    createdAt: '2h ago',
+    banner: 'https://images.unsplash.com/photo-1507427100689-2bf8574e32d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    donations: [
+      {
+        amount: 10,
+        donatedAt: '2 Days Ago',
+        donator: campaignCreatorData[0],
+      },
+      {
+        amount: 5,
+        donatedAt: '2 Days Ago',
+        donator: campaignCreatorData[2],
+      },
+    ],
+    comments: [
+      {
+        id: 7,
+        comment: 'Bravo',
+        createdBy: campaignCreatorData[0],
+        createdDate: '01/01/2020',
+      },
+      {
+        id: 8,
+        comment: 'I wish this becomes successful',
+        createdBy: campaignCreatorData[0],
+        createdDate: '01/01/2020',
+      },
+    ],
+  },
 ];
 
 export default campaignData;

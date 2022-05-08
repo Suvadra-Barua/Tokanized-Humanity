@@ -72,7 +72,7 @@ function Profile() {
                }
 
                </p>
-               <div className="flex space-x-2 pt-6">
+               <div className="flex pt-6 space-x-2">
                  <FaQuoteLeft className="text-primary" />
                  <p className="text-sm italic leading-6 ">
                    {
@@ -227,7 +227,7 @@ campaignCreatorData[params.id as unknown as number - 1].dob
                    <BiFile className="text-primary" size={24} />
                    <span className="tracking-wide">Successful Projects</span>
                  </div>
-                 <ul className="grid grid-cols-3 gap-2 list-inside">
+                 <ul className="grid grid-cols-2 gap-2 list-inside">
                    {
   getSuccessfulProject()
 }

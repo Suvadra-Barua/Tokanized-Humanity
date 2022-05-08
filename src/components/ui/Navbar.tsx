@@ -24,10 +24,8 @@ function Navbar() {
     >
       <Link className="flex items-center mr-3 space-x-2" to="/">
 
-        <img src="/logo.png" alt="" className="w-10 h-10" />
-        <h4 className="text-2xl font-black text-primary">
-          Tokenized Humanity
-        </h4>
+        <img src="/Tokenized Humanity.png" alt="" className=" h-10" />
+
       </Link>
       <div className="flex items-center">
 
@@ -52,6 +50,14 @@ function Navbar() {
                  </button>
                )
 }
+
+        <button
+          onClick={() => navigate('/sign-up')}
+          className="block px-4 py-2 text-sm transition duration-500 rounded-full text-primary hover:bg-primary hover:text-white"
+          type="button"
+        >
+          Sign In
+        </button>
 
         <button
           onClick={() => navigate('/sign-up')}

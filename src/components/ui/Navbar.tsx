@@ -21,16 +21,17 @@ function Navbar() {
     >
       <Link className="flex items-center mr-3 space-x-2" to="/">
 
-        <img src="/Tokenized Humanity.png" alt="" className=" h-10" />
+        <img src="/Tokenized Humanity.png" alt="" className="h-10 " />
 
       </Link>
       <div className="flex items-center">
 
         { localStorage.getItem('user') && localStorage.getItem('user')!.length > 1 ? (
-          <div className="flex space-x-2 items-center">
-            <Link to="/profile">
+          <div className="flex items-center space-x-2">
+            <p>
               { JSON.parse(localStorage.getItem('user')!).name}
-            </Link>
+            </p>
+
             {
               getRole() === 'dao' ? (
                 (

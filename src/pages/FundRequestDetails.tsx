@@ -1,37 +1,58 @@
 import { Menu } from '@headlessui/react';
 import { AiFillEdit } from 'react-icons/ai';
 import { BiSend } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import TextArea from '../components/ui/form-fields/TextArea';
 import { isOwner } from '../utils';
+import campaignData from '../utils/data/campaignData';
 
 function FundRequestDetails() {
+  const params = useParams();
+  console.log(params);
+
   return (
-    <div className="w-full space-y-6">
-      <h2 className="text-2xl font-bold">Emergency help to Support Lung Transplant</h2>
-      <div className="flex justify-between w-full space-x-4">
-        <img
-          className="object-fill w-1/2 h-full rounded-xl"
-          src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-          alt=""
-        />
-        <div className="w-1/2 px-8 pt-4 shadow-lg rounded-xl">
-          <div className="flex flex-col items-center justify-center w-full">
-            <h2 className="font-bold">
-              <span className="text-primary">
-                $24,020 USD
+    <div>
+      {
+          params.id
+            ? (
+              <div className="w-full space-y-6">
 
-              </span>
-              <span className="ml-1 text-sm font-normal">
-                raised of $52,000 goal
-              </span>
-            </h2>
-            <p className="py-2 text-sm text-gray-500/80">163 donations</p>
-          </div>
+                <h2 className="text-2xl font-bold">
+                  {campaignData[params.id as unknown as number - 1].name}
+                </h2>
+                <div className="flex justify-between w-full space-x-4">
+                  <img
+                    className="object-fill w-1/2 h-full rounded-xl"
+                    src={campaignData[params.id as unknown as number - 1].banner}
+                    alt=""
+                  />
+                  <div className="w-1/2 px-8 pt-4 shadow-lg rounded-xl">
+                    <div className="flex flex-col items-center justify-center w-full">
+                      <h2 className="font-bold">
+                        <span className="text-primary">
+                          {campaignData[params.id as unknown as number - 1].fundRaised}
 
-          <div className="relative w-full pt-4 space-y-4">
+                        </span>
+                        <span className="ml-1 text-sm font-normal">
+                          raised of
+                          {' '}
+                          {
+                            campaignData[params.id as unknown as number - 1].fundGoal
+                          }
+                          {' '}
+                          goal
+                        </span>
+                      </h2>
+                      <p className="py-2 text-sm text-gray-500/80">
+                        {campaignData[params.id as unknown as number - 1].donationCount}
+                        {' '}
+                        donations
+                      </p>
+                    </div>
 
-            {
+                    <div className="relative w-full pt-4 space-y-4">
+
+                      {
        isOwner ? (
          <button type="button" className="block w-full py-2 text-white transition rounded-full bg-primary hover:bg-secondary">
            Withdraw
@@ -80,39 +101,52 @@ function FundRequestDetails() {
            </Menu>
          )
      }
-            <button
-              className="block w-full py-2 transition border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
-              type="button"
-            >
-              Share
-            </button>
-          </div>
+                      <button
+                        className="block w-full py-2 transition border rounded-full text-primary border-primary hover:bg-primary hover:text-white"
+                        type="button"
+                      >
+                        Share
+                      </button>
+                    </div>
 
-          <div className="py-4 space-y-3">
+                    <div className="py-4 space-y-3">
+                      {campaignData[params.id as unknown as number - 1].donations.map(
+                        (donation, index) => (
+                        // eslint-disable-next-line react/no-array-index-key
+                          <div key={index} className="flex items-center space-x-2">
+                            <img
+                              src={donation.donator.profilePicture}
+                              alt=""
+                              className="flex flex-shrink-0 w-10 h-10 rounded-full"
+                            />
+                            <div>
+                              <p className="font-semibold">{donation.donator.name}</p>
+                              <div className="flex items-center space-x-2 text-sm text-gray-500/80">
+                                <p>
+                                  Donated
+                                  <span className="pr-2 font-semibold border-r border-primary">
+                                    {' '}
+                                    {donation.amount}
+                                  </span>
+                                </p>
 
-            <div className="flex items-center space-x-2">
-              <img
-                src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                alt=""
-                className="flex flex-shrink-0 w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="font-semibold">Name</p>
-                <div className="flex items-center space-x-2 text-sm text-gray-500/80">
-                  <p>
-                    Donated
-                    <span className="pr-2 font-semibold border-r border-primary"> $100</span>
-                  </p>
+                                <p>
+                                  {
+                                donation.donatedAt
+}
 
-                  <p>2 Days ago</p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        ),
+                      )}
+
+                    </div>
+                  </div>
+
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      {
+                {
    isOwner ? (
      <button
        type="button"
@@ -132,38 +166,43 @@ function FundRequestDetails() {
            />
          </Link>
          <div className="font-semibold ">
-           <Link to="/user/1" className="text-secondary dark:text-primary">
-             Miss Jane
+           <Link to={`/user/${campaignData[params.id as unknown as number - 1].creatorData.id}`} className="text-secondary dark:text-primary">
+             {
+               campaignData[params.id as unknown as number - 1].creatorData.name
+             }
 
            </Link>
            {' '}
            is organizing this fundraiser.
            <p className="mt-1 text-sm font-normal text-gray-500/60">
-             Senior Software Engineer at Tero Labs LLC.
+             {
+               campaignData[params.id as unknown as number - 1].creatorData.profession
+             }
+
            </p>
          </div>
        </div>
      )
  }
-      <div className="flex items-center space-x-2 text-gray-500/80">
-        <p className="text-sm italic">
-          Created April 26, 2022 at 12:00 AM
-        </p>
-        <div className="w-1 h-1 rounded bg-primary" />
-        <p className="text-sm italic">
-          Valid Until April 26, 2022 at 12:00 AM
-        </p>
-      </div>
-      <p className="max-w-3xl leading-loose">
-        As-salamu alaykum, dear brothers and sisters.
-
-        My name is Mohammad Adnan (Sohel), and I&apos;m reaching out to you on behalf of a family that my family knows for a long time.
-
-        Please take a few minutes out of your busy life and read the message below.  I am writing this letter to seek your kind support and generous help.
-
-        In December of last year, a family of four came to Chicago from Dhaka as international students for better education, opportunities, and an overall better lifestyle.
-      </p>
-      {
+                <div className="flex items-center space-x-2 text-gray-500/80">
+                  <p className="text-sm italic">
+                    Created on
+                    {' '}
+                    { campaignData[params.id as unknown as number - 1].startDate}
+                  </p>
+                  <div className="w-1 h-1 rounded bg-primary" />
+                  <p className="text-sm italic">
+                    Valid Until
+                    {' '}
+                    { campaignData[params.id as unknown as number - 1].endDate}
+                  </p>
+                </div>
+                <p className="max-w-3xl leading-loose">
+                  {
+                    campaignData[params.id as unknown as number - 1].description
+                  }
+                </p>
+                {
     isOwner && (
     <div className="relative">
       <TextArea
@@ -181,7 +220,14 @@ function FundRequestDetails() {
     </div>
     )
      }
+              </div>
+            ) : (
+              <p>No Campaign Found</p>
+            )
+
+        }
     </div>
+
   );
 }
 
